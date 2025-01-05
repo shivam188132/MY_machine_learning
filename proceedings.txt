@@ -1,0 +1,12 @@
+ge --> no thing
+gender --> male, female , others --> no order --> one hot encoding
+city -->  no order --> one hot encoding
+income --> nothing
+job title --> no order --> one hot encoding
+educational level --> order --> ordinal encoding
+maritial status --> one hot encoding
+Has Vehicle --> ordinal encoding
+
+
+1.encodings 
+2.scaing
