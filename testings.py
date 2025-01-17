@@ -1,24 +1,15 @@
-def generate_coffecients(numRows):
-    cofficient=[]
-    def calc_factorial(numRows):
-        
-        fact =1
-        for i in range(1, numRows+1):
-            fact = fact*numRows
-        return fact 
-    if numRows==0:
-        cofficient = [1]
-    for i in range(numRows):
-        for j in range(numRows+1):
-            
+def generate(numRows):
 
-            cofficient.append(
-                calc_factorial()
-            ) 
+        matrix = []
+        def binomial_coefficients(n):
+            coefficients = [1]  
+            for i in range(1, n + 1):
+                coefficients.append(coefficients[i - 1] * (n - i + 1) // i)
+            return coefficients
+        for i in range(numRows):
+            x = binomial_coefficients(i)
+            matrix.append(x)
+         
+        return matrix
 
-    return cofficient
-
-# 1
-    
-
-print(generate_coffecients(0))
+print(generate(numRows=10000))
