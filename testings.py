@@ -1,15 +1,33 @@
-def generate(numRows):
+def calc(nums):
+    low = float('+inf')
+    for x in nums:
+        if x < low:
+            low = x
 
-        matrix = []
-        def binomial_coefficients(n):
-            coefficients = [1]  
-            for i in range(1, n + 1):
-                coefficients.append(coefficients[i - 1] * (n - i + 1) // i)
-            return coefficients
-        for i in range(numRows):
-            x = binomial_coefficients(i)
-            matrix.append(x)
-         
-        return matrix
+    high = float('-inf')
+    for x in nums:
+        if x > high:
+            high = x
+            
+    return low, high
+    
 
-print(generate(numRows=10000))
+# a=calc([1,2,3, 5, 4,7])
+# print(a)
+nums=[1,2,3, 5, 3,4]
+br_i = 0
+smaller = []
+for i in range(-1,-len(nums)-1,-1):
+    print(i, nums[i])
+    if nums[i-1]<nums[i]:
+        smaller.append(nums[i])
+        br_i = nums[i-1]
+        nums[i-1] = nums[i]
+        nums[i] = 
+        break
+# print(nums)
+        
+
+
+
+    
