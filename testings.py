@@ -1,25 +1,20 @@
-def my_fc(nums):
-        b_i = float('-inf')
-        for i in range(-1,-len(nums),-1):
-            if nums[i-1] < nums[i]:
-                b_i = i-1
-                
-                break
-        if b_i == float('-inf'):
-                nums.reverse()
-                return nums
-        # b_i = -5
-        # b_i = -3
-        for i in range(-1, b_i, -1):
-            if nums[i] > nums[b_i]:
-           # [2,2,4,5,3,0,0] 
-                nums[b_i], nums[i] =  nums[i], nums[b_i]
-            b = nums
-            break
-            # [3,2,1]
-        # [2,2,4,5,3,0,0]
-        nums[b_i+1:] = reversed(nums[b_i+1:])
+# Example: Counting unique artists
+import pandas as pd
 
-        return nums, b_i, b
-a = my_fc([2,3,1])
-print(a)
+# Sample DataFrame
+data = {'artist': ['Taylor Swift, Ed Sheeran', 
+                   'Ed Sheeran', 
+                   'Ariana Grande, Justin Bieber, Ed Sheeran', 
+                   'Taylor Swift, Justin Bieber']}
+df = pd.DataFrame(data)
+
+# Split artist names, flatten the list, and find unique artists
+all_artists = df['artist'].str.split(',').explode().str.strip()
+unique_artists = all_artists.unique()
+
+# Count unique artists
+unique_count = len(unique_artists)
+
+# Print the unique artists and their count
+print("Unique Artists:", unique_artists)
+print("Number of Unique Artists:", unique_count)
