@@ -1,25 +1,36 @@
-import pandas as pd
-import numpy as np
+# x = [2,2,3,5,4,0,0]
+x = [3,2,1]
+def nums(x):
+        i = len(x)-1
+        
+        k = len(x)-1
 
-# Create sample data
-data = pd.DataFrame({'Value': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]})
+        while (k>0 and x[k-1]>= x[k]):
+            k-=1
+        # return k
+        if (k == 0):
+            x[:] = reversed(x[:])
+            return x
+            # k =3
+        while(i>=k):
+            if(x[i]> x[k-1]):
+                 temp = x[k-1]
+                 x[k-1] = x[i]
+                 x[i] = temp
+                 break
+            else:
+                i-=1
+        x[k:] = reversed(x[k:])
+        return x
+            
 
-# Perform equal frequency binning into 3 bins
-data['Equal_Frequency_Bin'] = pd.qcut(data['Value'], q=3, labels=['Bin 1', 'Bin 2', 'Bin 3'])
+       
+            
 
-print(data)
-import matplotlib.pyplot as plt
-import seaborn as sns
 
-# Create histogram for data distribution
-sns.histplot(data['Value'], bins=10, kde=False, color='blue', label='Original Data')
+        # return x
+        
 
-# Overlay bin ranges
-plt.axvline(x=4.5, color='red', linestyle='--', label='Bin 1-Bin 2 Boundary')
-plt.axvline(x=7.5, color='green', linestyle='--', label='Bin 2-Bin 3 Boundary')
 
-plt.title('Equal Frequency Binning')
-plt.xlabel('Value')
-plt.ylabel('Frequency')
-plt.legend()
-plt.show()
+a = nums(x)
+print(a)
