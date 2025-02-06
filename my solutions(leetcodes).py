@@ -1,16 +1,7 @@
-# problem 118. Pascal's Triangle
-class Solution:
-    def generate(self, numRows: int) -> List[List[int]]:
+import pandas as pd
 
-        matrix = []
-        def binomial_coefficients(n):
-            coefficients = [1]  
-            for i in range(1, n + 1):
-                coefficients.append(coefficients[i - 1] * (n - i + 1) // i)
-            return coefficients
-        for i in range(numRows):
-            x = binomial_coefficients(i)
-            matrix.append(x)
-         
-        return matrix
-        
+# Read the Excel file
+df = pd.read_excel("C:\Users\shiva\Downloads\Amazon Sale Report.xlsx", engine='openpyxl')  # Ensure openpyxl is installed
+
+# Convert to CSV
+df.to_csv("Amazon report.csv", index=False, encoding='utf-8')
