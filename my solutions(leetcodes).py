@@ -13,4 +13,7 @@ def max_subarray_sum_better(arr):
     
     return max_sum
 
-print(max_subarray_sum_better([-2,1,-3,4,-1,2,1,-5,4]))
+# print(max_subarray_sum_better([-2,1,-3,4,-1,2,1,-5,4]))
+
+a = "a"
+print(a+1)
